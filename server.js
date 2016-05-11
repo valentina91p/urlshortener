@@ -12,17 +12,18 @@ var urlSchema = mongoose.Schema({
 var Url = mongoose.model('Url', urlSchema);
 
 app.get('/',function(req,res){
-
+	res.sendFile('index.html', {root:__dirname});
 });
 
 app.get("/create/*", function(req,res){
 	if(/^(http|https):\/\/www\.[a-zA-Z][a-zA-Z\-]*\.[a-zA-Z]+$/.test(req.params[0])){
 		var new_token = tokengen.generate(4);
-		Url.save({token: new_token, original: req.params[0]}, function(err,url){
+		var entry = new Url({token: new_token, original: req.params[0]});
+		entry.save(function(err){
 			if(err){
 				res.json({error: err});	
 			}else{
-				res.json({original_url: url.original, short_url: url.token});
+				res.json({original_url: entry.original, short_url: entry.token});
 			}
 		});
 	}else

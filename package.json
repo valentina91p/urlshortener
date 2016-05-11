@@ -18,6 +18,7 @@
   "homepage": "https://github.com/valentina91p/urlshortener#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "mongoose": "^4.4.16"
+    "mongoose": "^4.4.16",
+    "rand-token": "^0.2.1"
   }
 }

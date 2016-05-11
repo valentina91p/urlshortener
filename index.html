@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Url Shortener</title>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		body{
+			font-family: 'Lato', sans-serif;
+		}
+	</style>
+</head>
+<body>
+<h1>Url shortener basejump</h1>
+This microserver allows to generate a short url for a url that you submit.
+<h3>To create short url</h3>
+<strong>/create/:url</strong><br>
+Returns a json that includes both the original url and the shortened url.
+<h3>To resolve short url</h3>
+<strong>/:token</strong><br>
+If the token is associated to an url, it will redirect you to it, otherwise it will return an error message.
+</body>
+</html>
